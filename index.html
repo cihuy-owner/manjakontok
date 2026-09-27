@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEXFLIX — Premium Account Generator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-mesh"></div>
+<div class="grid-overlay"></div>
+<div class="noise-overlay"></div>
+<div class="toast-stack" id="toastStack"></div>
+
+<!-- LANDING -->
+<section class="screen active scrollable" id="screenLanding">
+    <div class="landing-shell">
+        <nav class="landing-nav">
+            <div class="brand">
+                <div class="logo">N</div>
+                <span class="name">NEX<span class="brand-accent">FLIX</span></span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-outline" onclick="showScreen('login')">Masuk</button>
+                <button class="btn-outline primary" onclick="showScreen('register')">Daftar Trial</button>
+            </div>
+        </nav>
+        <div class="hero-landing">
+            <div class="hero-badge"><span class="dot"></span> Server Online · 24/7 Aktif</div>
+            <h1>Generate Akun <span class="accent">Netflix Premium</span> Gratis</h1>
+            <p class="lead">Dapatkan akses akun Netflix Premium dengan cepat dan mudah. Cukup klik, tunggu sebentar, akun siap digunakan di PC, Android, dan Smart TV.</p>
+            <div class="hero-cta">
+                <button class="btn-hero" onclick="showScreen('register')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    Coba Gratis 3 Hari
+                </button>
+                <button class="btn-hero ghost" onclick="showScreen('login')">Sudah Punya Akun</button>
+            </div>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card"><div class="feature-icon red">⚡</div><h3>Proses Cepat</h3><p>Hanya butuh beberapa detik untuk generate akun. Nggak perlu ribet, nggak perlu nunggu lama.</p></div>
+            <div class="feature-card"><div class="feature-icon purple">🔗</div><h3>Multi Device</h3><p>Link langsung untuk PC, Android, dan Smart TV. Tinggal klik, langsung bisa login.</p></div>
+            <div class="feature-card"><div class="feature-icon green">🛡️</div><h3>Aman & Terpercaya</h3><p>Sistem kami dilengkapi verifikasi dan pemantauan untuk memastikan kualitas akun.</p></div>
+            <div class="feature-card"><div class="feature-icon gold">🎁</div><h3>Trial 3 Hari</h3><p>Coba gratis tanpa perlu daftar pakai email. Setelah trial habis, upgrade ke premium.</p></div>
+        </div>
+        <div class="stats-showcase">
+            <div class="showcase-stat"><div class="num">10K+</div><div class="lbl">Akun Dibuat</div></div>
+            <div class="showcase-stat"><div class="num">99%</div><div class="lbl">Success Rate</div></div>
+            <div class="showcase-stat"><div class="num">24/7</div><div class="lbl">Online</div></div>
+            <div class="showcase-stat"><div class="num">3dtk</div><div class="lbl">Proses Cepat</div></div>
+        </div>
+        <div class="faq-section">
+            <h2>Pertanyaan Umum</h2>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Apakah ini gratis? <span class="arrow">▾</span></div><div class="faq-a">Ya, ada paket trial gratis 3 hari. Setelah itu kamu bisa minta akses permanen ke admin.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Bagaimana cara daftar? <span class="arrow">▾</span></div><div class="faq-a">Klik tombol "Daftar Trial", isi username, email, dan password. Akun otomatis aktif selama 3 hari.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Kenapa akun saya tidak bisa login lagi? <span class="arrow">▾</span></div><div class="faq-a">Kemungkinan trial kamu sudah habis (3 hari), atau akunmu di-banned admin. Hubungi admin untuk info lebih lanjut.</div></div>
+            <div class="faq-item" onclick="toggleFaq(this)"><div class="faq-q">Berapa limit generate per hari? <span class="arrow">▾</span></div><div class="faq-a">Limit berbeda-beda per user. Info limit kamu ada di dashboard setelah login.</div></div>
+        </div>
+        <div class="landing-footer">
+            <div class="dev-credit">
+                <span class="dev-badge">⚡</span>
+                <span>Developed by <strong>cihuy</strong></span>
+                <a href="https://wa.me/6288211557422" target="_blank" rel="noopener" class="dev-wa">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <span>Contact Owner</span>
+                </a>
+            </div>
+            <p style="margin-top:1rem;">© 2026 NEXFLIX Generator · Powered by <a href="https://api.zyvor.my.id" target="_blank">zyvor.my.id</a></p>
+            <p style="margin-top:.5rem;">Proyek demo untuk pembelajaran. Bukan afiliasi resmi Netflix.</p>
+        </div>
+    </div>
+</section>
+
+<!-- MAINTENANCE -->
+<section class="screen" id="screenMaint">
+    <div class="maint-screen">
+        <div class="maint-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h1>Sedang <span>Maintenance</span></h1>
+        <p id="maintMessage">Kami sedang melakukan pemeliharaan sistem. Silakan kembali lagi nanti.</p>
+        <div class="maint-refresh" id="maintCountdown">Memeriksa status...</div>
+        <div style="margin-top: 2rem;">
+            <button class="btn-ghost admin-hover" onclick="showScreen('login')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Login Admin
+            </button>
+        </div>
+    </div>
+</section>
+
+<!-- LOGIN -->
+<section class="screen" id="screenLogin">
+    <div class="auth-shell">
+        <div class="brand-mark" onclick="showScreen('landing')">
+            <div class="brand-logo">N</div>
+            <div class="brand-name">NEX<span>FLIX</span></div>
+        </div>
+        <div class="auth-card">
+            <h2>Selamat Datang</h2>
+            <p class="subtitle">Masuk untuk mengakses panel generator</p>
+            <div class="alert error" id="loginError"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="loginErrorText"></span></div>
+            <form id="loginForm">
+                <div class="input-wrap"><input type="text" id="loginUser" placeholder="Username atau email" autocomplete="username" required><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div class="input-wrap"><input type="password" id="loginPass" placeholder="Password" autocomplete="current-password" required><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><button type="button" class="toggle-pass" onclick="togglePass('loginPass', this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+                <button type="submit" class="btn-main">Masuk</button>
+            </form>
+            <div class="switch-line">Belum punya akun? <a onclick="showScreen('register')">Daftar trial 3 hari</a></div>
+        </div>
+    </div>
+</section>
+
+<!-- REGISTER -->
+<section class="screen scrollable" id="screenRegister">
+    <div class="auth-shell">
+        <div class="brand-mark" onclick="showScreen('landing')">
+            <div class="brand-logo">N</div>
+            <div class="brand-name">NEX<span>FLIX</span></div>
+        </div>
+        <div class="auth-card">
+            <h2>Daftar Trial <span class="trial-badge">Gratis 3 Hari</span></h2>
+            <p class="subtitle">Coba gratis, tanpa kartu kredit</p>
+            <div class="info-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><div>Akun trial aktif <b>3 hari</b> sejak registrasi. Untuk akses permanen dengan limit lebih tinggi, hubungi admin.</div></div>
+            <div class="alert error" id="regError"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="regErrorText"></span></div>
+            <form id="registerForm">
+                <div class="input-wrap"><input type="text" id="regUser" placeholder="Username (min. 3 karakter)" required><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+                <div class="input-wrap"><input type="email" id="regEmail" placeholder="Alamat email" required><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                <div class="input-wrap"><input type="password" id="regPass" placeholder="Password (min. 6 karakter)" required><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg><button type="button" class="toggle-pass" onclick="togglePass('regPass', this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></button></div>
+                <div class="input-wrap"><input type="password" id="regPassConfirm" placeholder="Konfirmasi password" required><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.66 0 3.22.45 4.56 1.24"/></svg></div>
+                <button type="submit" class="btn-main">Mulai Trial 3 Hari</button>
+            </form>
+            <div class="switch-line">Sudah punya akun? <a onclick="showScreen('login')">Masuk di sini</a></div>
+        </div>
+    </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="screen scrollable" id="screenDashboard">
+    <div class="dash-shell">
+        <header class="dash-header">
+            <div class="dash-brand"><div class="brand-logo">N</div><span>NEX<span class="brand-accent">FLIX</span></span></div>
+            <div class="user-chip">
+                <button class="btn-notif" id="btnNotif" onclick="toggleNotifications()" title="Aktifkan notifikasi"></button>
+                <div class="user-meta"><div class="uname" id="displayUser">user</div><div class="urole" id="displayUserRole">Member</div></div>
+                <div class="avatar" id="userAvatar">U</div>
+                <button class="btn-ghost" onclick="logout()">Keluar</button>
+            </div>
+        </header>
+        <div class="broadcast-banner" id="userBroadcast">
+            <div class="bc-icon">📢</div>
+            <div class="bc-body"><div class="bc-title">Pengumuman</div><div id="userBroadcastText"></div></div>
+            <button class="bc-close" onclick="dismissBroadcast()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card"><div class="stat-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Total Generate</div><div class="stat-value" id="statTotal">0</div></div>
+            <div class="stat-card"><div class="stat-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Terakhir Generate</div><div class="stat-value" style="font-size:1rem;" id="statLast">—</div></div>
+            <div class="stat-card"><div class="stat-label"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg><span id="statExpiryLbl">Bergabung Sejak</span></div><div class="stat-value" style="font-size:1rem;" id="statJoined">—</div></div>
+        </div>
+        <div class="gen-card">
+            <div class="gen-head"><h2>Generator <span>Akun Premium</span></h2><p>Klik tombol di bawah untuk membuat akun baru</p></div>
+            <div class="limit-info">
+                <div class="limit-chip"><div class="lc-icon green">🎯</div><div class="lc-body"><div class="lc-lbl">Sisa Hari Ini</div><div class="lc-val" id="limitRemaining">— / —</div></div></div>
+                <div class="limit-chip"><div class="lc-icon yellow">⏱️</div><div class="lc-body"><div class="lc-lbl">Cooldown</div><div class="lc-val" id="cooldownInfo">—</div></div></div>
+            </div>
+            <button class="btn-generate" id="generateBtn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg><span id="generateBtnText">Generate Sekarang</span></button>
+            <div class="cooldown-notice" id="cooldownNotice"></div>
+            <div class="loader" id="loader"><div class="loader-ring"></div><div class="loader-text">Menghubungi server...</div></div>
+            <div class="result-box" id="resultBox"></div>
+        </div>
+    </div>
+</section>
+
+<!-- ADMIN -->
+<section class="screen scrollable" id="screenAdmin">
+    <div class="admin-shell">
+        <header class="dash-header">
+            <div class="dash-brand">
+                <div class="brand-logo admin">A</div>
+                <span>Admin <span style="color:#a78bfa">Panel</span></span>
+                <span style="font-size:0.65rem;color:var(--text-muted);margin-left:.5rem;font-weight:500;">by cihuy</span>
+            </div>
+            <div class="user-chip">
+                <div class="user-meta"><div class="uname" id="adminName">Administrator</div><div class="urole admin">Full Access</div></div>
+                <div class="avatar admin-av" id="adminAvatar">A</div>
+                <button class="btn-ghost admin-hover" onclick="logout()">Keluar</button>
+            </div>
+        </header>
+        <div class="admin-tabs">
+            <button class="admin-tab active" onclick="switchTab('users', this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>User</button>
+            <button class="admin-tab" onclick="switchTab('create', this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>Buat Akun</button>
+            <button class="admin-tab" onclick="switchTab('generator', this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Generator</button>
+            <button class="admin-tab" onclick="switchTab('activity', this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Aktivitas</button>
+            <button class="admin-tab" onclick="switchTab('broadcast', this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>Broadcast</button>
+            <button class="admin-tab" onclick="switchTab('maintenance', this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Maintenance</button>
+        </div>
+        <div class="admin-panel active" id="panelUsers">
+            <div class="admin-card"><h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Daftar Pengguna</h3><p class="desc">Kelola akun user — lihat password, edit limit, atau hapus</p><div id="usersList"></div></div>
+        </div>
+        <div class="admin-panel" id="panelCreate">
+            <div class="admin-card">
+                <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>Buat Akun Baru</h3>
+                <p class="desc">Bikin akun untuk teman/member baru — gak perlu daftar pakai email mereka</p>
+                <div class="alert error" id="createError" style="margin-bottom:1rem"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><span id="createErrorText"></span></div>
+                <div class="form-row">
+                    <div class="form-field"><label>Username</label><input type="text" id="createUser" placeholder="contoh: budi123"></div>
+                    <div class="form-field"><label>Email</label><input type="email" id="createEmail" placeholder="budi@contoh.com"></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field"><label>Password</label><input type="text" id="createPass" placeholder="min. 6 karakter"></div>
+                    <div class="form-field"><label>Tipe Akun</label><select id="createType"><option value="permanent">Permanent (Permanent)</option><option value="trial">Trial 3 Hari</option><option value="custom">Custom (set manual)</option></select></div>
+                </div>
+                <div class="form-row">
+                    <div class="form-field"><label>Limit Harian (Generate/hari)</label><input type="number" id="createDailyLimit" value="10" min="1" max="999"><div class="hint">Berapa kali user bisa generate dalam sehari</div></div>
+                    <div class="form-field"><label>Cooldown (menit antar generate)</label><input type="number" id="createCooldown" value="5" min="0" max="120"><div class="hint">Jeda waktu antar generate dalam menit</div></div>
+                </div>
+                <div class="form-row full" id="customExpiryRow" style="display:none">
+                    <div class="form-field"><label>Expired Setelah (hari)</label><input type="number" id="createExpiryDays" value="7" min="1" max="3650"><div class="hint">Akun akan otomatis expired setelah N hari</div></div>
+                </div>
+                <div class="form-row full">
+                    <div class="form-field"><label>Role</label><div class="role-picker">
+                        <div class="role-option member active" data-role="member" onclick="pickRole('member')"><div class="ro-icon">👤</div><div class="ro-lbl">Member</div><div class="ro-desc">User biasa, bisa generate</div></div>
+                        <div class="role-option" data-role="admin" onclick="pickRole('admin')"><div class="ro-icon">👑</div><div class="ro-lbl">Admin</div><div class="ro-desc">Akses panel admin</div></div>
+                    </div></div>
+                </div>
+                <button class="btn-main" style="margin-top:1rem;" onclick="createAccount()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>Buat Akun</button>
+            </div>
+        </div>
+        <div class="admin-panel" id="panelGenerator">
+            <div class="admin-card">
+                <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Generator Admin</h3>
+                <p class="desc">Admin juga bisa generate akun. Semua aktivitas generate akan tercatat di log.</p>
+                <div class="stats-grid" style="margin-bottom:1.5rem">
+                    <div class="stat-card"><div class="stat-label">Total Generate Admin</div><div class="stat-value" id="adminGenTotal">0</div></div>
+                    <div class="stat-card"><div class="stat-label">Terakhir Generate</div><div class="stat-value" style="font-size:1rem;" id="adminGenLast">—</div></div>
+                    <div class="stat-card"><div class="stat-label">Admin Login</div><div class="stat-value" style="font-size:1rem;" id="adminGenName">—</div></div>
+                </div>
+                <button class="btn-generate purple" id="adminGenerateBtn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Generate Sekarang</button>
+                <div class="loader" id="adminLoader"><div class="loader-ring" style="border-top-color:#7c3aed;"></div><div class="loader-text">Menghubungi server...</div></div>
+                <div class="result-box" id="adminResultBox"></div>
+            </div>
+        </div>
+        <div class="admin-panel" id="panelActivity">
+            <div class="admin-card">
+                <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Riwayat Login & Aktivitas</h3>
+                <p class="desc">Log aktivitas user & admin (login, logout, generate). Klik 🗑 untuk hapus per-item.</p>
+                <div style="margin-bottom:1rem;display:flex;gap:0.5rem;flex-wrap:wrap;"><button class="btn-icon" onclick="clearActivity()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Hapus Semua Log</button></div>
+                <div id="activityList"></div>
+            </div>
+        </div>
+        <div class="admin-panel" id="panelBroadcast">
+            <div class="admin-card">
+                <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg>Broadcast Banner</h3>
+                <p class="desc">Kirim pesan yang muncul sebagai banner di dashboard semua user</p>
+                <div class="status-indicator"><div class="status-dot" id="bcStatusDot"></div><span id="bcStatusText">Memeriksa status...</span></div>
+                <div class="maint-box"><div class="maint-info"><h4>Aktifkan Broadcast</h4><p>Banner akan muncul di dashboard semua user</p></div><div class="switch" id="bcSwitch" onclick="toggleBroadcast()"></div></div>
+                <label style="display:block;font-size:0.8rem;color:var(--text-dim);font-weight:700;margin-top:1.5rem;text-transform:uppercase;letter-spacing:1px;">Tipe Banner</label>
+                <div class="broadcast-type-picker">
+                    <button class="bc-type-btn info active" data-type="info" onclick="pickBcType('info', this)">📢 Info</button>
+                    <button class="bc-type-btn warning" data-type="warning" onclick="pickBcType('warning', this)">⚠ Peringatan</button>
+                    <button class="bc-type-btn success" data-type="success" onclick="pickBcType('success', this)">✓ Sukses</button>
+                </div>
+                <label style="display:block;font-size:0.8rem;color:var(--text-dim);font-weight:700;margin-top:.5rem;text-transform:uppercase;letter-spacing:1px;">Pesan Broadcast</label>
+                <textarea class="maint-msg-input" id="bcTextInput" placeholder="Contoh: Update! Token baru lebih cepat expired, gunakan dalam 5 menit pertama."></textarea>
+                <button class="btn-main" style="margin-top:1rem;" onclick="saveBroadcast()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Simpan Broadcast</button>
+            </div>
+        </div>
+        <div class="admin-panel" id="panelMaintenance">
+            <div class="admin-card">
+                <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Mode Maintenance</h3>
+                <p class="desc">🔴 Kontrol ini berlaku untuk SEMUA user di semua device (pakai jsonbin cloud)</p>
+                <div class="status-indicator"><div class="status-dot" id="maintStatusDot"></div><span id="maintStatusText">Memeriksa status...</span></div>
+                <div class="maint-box"><div class="maint-info"><h4>Status Maintenance</h4><p>Aktifkan untuk mengunci akses user biasa</p></div><div class="switch" id="maintSwitch" onclick="toggleMaintenance()"></div></div>
+                <label style="display:block;font-size:0.8rem;color:var(--text-dim);font-weight:700;margin-top:1.5rem;text-transform:uppercase;letter-spacing:1px;">Pesan untuk User</label>
+                <textarea class="maint-msg-input" id="maintMsgInput" placeholder="Kami sedang melakukan pemeliharaan. Silakan kembali lagi nanti."></textarea>
+                <button class="btn-main" style="margin-top:1rem;" onclick="saveMaintMessage()"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>Simpan Pesan</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="config.js"></script>
+<script src="api.js"></script>
+<script src="notifications.js"></script>
+<script src="ui.js"></script>
+</body>
+                  </html>
